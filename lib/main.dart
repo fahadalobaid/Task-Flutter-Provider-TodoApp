@@ -1,11 +1,17 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/pages/add_page.dart';
 import 'package:todo_app/pages/home_page.dart';
+import 'package:todo_app/provider/todo_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => TodoProvider(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
